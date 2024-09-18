@@ -26,14 +26,14 @@ class Farmer(models.Model):
 
 class Post(models.Model):
     farmer = models.ForeignKey(Farmer, on_delete=models.CASCADE)
-    name = models.TextField(max_length=50)
+    name = models.CharField(max_length=50)
     stock = models.IntegerField()
     delivery_date = models.DateTimeField()
-    description = models.TextField()
+    description = models.CharField(max_length=100)
     fare = models.IntegerField()
     arrival_date = models.DateTimeField()
-    Origin = models.TextField(max_length=50)
-    Destination = models.TextField(max_length=50)
+    Origin = models.CharField(max_length=50)
+    Destination = models.CharField(max_length=50)
 class Truck(models.Model):
     TruckId=models.AutoField(max_length=None,primary_key=True)
     DriverId=models.ForeignKey('Driver',on_delete=models.CASCADE,null=False)
