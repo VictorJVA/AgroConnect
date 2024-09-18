@@ -38,7 +38,7 @@
     <div class="container-fluid bg-light text-center py-5">
         <h1>Welcome to the Farmer's Portal</h1>
         <p class="lead">Providing fresh, organic products straight from the farm to your table</p>
-        <a href="#" class="btn btn-success btn-lg">Create new post</a>
+        <a href="{% url 'create_product' farmer.id %}" class="btn btn-success btn-lg">Create new post</a>
     </div>
 
     <!-- Products Section -->
