@@ -34,3 +34,11 @@ class Post(models.Model):
     arrival_date = models.DateTimeField()
     Origin = models.TextField(max_length=50)
     Destination = models.TextField(max_length=50)
+class Truck(models.Model):
+    TruckId=models.AutoField(max_length=None,primary_key=True)
+    DriverId=models.ForeignKey('Driver',on_delete=models.CASCADE,null=False)
+    LicensePlate=models.CharField(max_length=6)
+class Order(models.Model):
+    PostId=models.ForeignKey('Post',on_delete=models.CASCADE,null=False)
+    TransportId=models.ForeignKey('Driver',on_delete=models.CASCADE,null=False)
+    Amount= models.IntegerField()
