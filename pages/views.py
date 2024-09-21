@@ -111,7 +111,7 @@ class FarmerPersonView(View):
         return render(request,self.template_name,context)
     
 
-class PostView():
+class PostView(View):
     template_name = 'show.html'
 
     def get(self, request, id):
@@ -123,7 +123,7 @@ class PostView():
          post = get_object_or_404(Post, pk=post_id)
       except (ValueError, IndexError):
          # If the product id is not valid, redirect to the home page
-         return HttpResponseRedirect(reverse('home'))
+         return HttpResponseRedirect(reverse('error'))
       
 
       post = get_object_or_404(Post, pk=post_id) 
@@ -143,3 +143,10 @@ class PostView():
         }
          
       return render(request, self.template_name, context)
+
+class ErrorView(TemplateView):
+    template_name='error_page.html'
+
+
+class LandingPageView(TemplateView):
+    template_name='landingPage.html'
