@@ -34,6 +34,7 @@ class Post(models.Model):
     arrival_date = models.DateTimeField()
     Origin = models.CharField(max_length=50)
     Destination = models.CharField(max_length=50)
+    
 class Truck(models.Model):
     TruckId=models.AutoField(max_length=None,primary_key=True)
     DriverId=models.ForeignKey('Driver',on_delete=models.CASCADE,null=False)
