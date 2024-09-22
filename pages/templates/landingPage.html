@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %} Landing Page {% endblock %}
+{% block content %}
+<div class="card mb-3">
+    <div class="row g-0">
+        <div class="col-md-8">
+            <div class="card-body">
+                <h1 class="card-title">
+                    AGROCONECT
+                </h1>
+                <h2> conectar a camioneros y agricultores, para maximizar el transporte de productos agricolas a los
+                    mercados a un menor precio</h2>
+                <p> postal code : {{postal}}</p>
+                <p> delivery due date: {{delivery}}</p>
+                <p>interested? <a href="https://wa.me{{phone}}"><em>continue</em></a></p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
