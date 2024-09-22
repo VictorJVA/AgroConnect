@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %} {{title}} {% endblock %}
+{% block content %}
+<div class="card mb-3">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img src="https://static.djangoproject.com/img/logos/django-logo-positive.svg" class="img-fluid
+rounded-start">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">
+                    {{name}}
+                </h5>
+                <p> stock: {{stock}}</p>
+                <p>famer: {{farmer_name}}</p>
+                <p> delivery due date: {{delivery}}</p>
+                <p><a href="#">contact {{farmer_name}} here</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

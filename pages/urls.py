@@ -12,4 +12,6 @@ urlpatterns = [
     path('create/<int:farmer_id>/', views.CreateProductView.as_view(), name='create_product'),
     path('driver/<int:driver_id>/', views.DriverHomepageView.as_view(), name='driver_homepage'),
     path('driver/<int:driver_id>/available-orders/', views.AvailableOrdersView.as_view(), name='available_orders'),
-]
+    path("post/<int:post_id>/", views.PostView.as_view(), name="show_post"),
+    path("error/", views.ErrorView.as_view(),name='error')
+]    

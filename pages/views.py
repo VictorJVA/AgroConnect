@@ -1,4 +1,6 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
+from django.urls import reverse
 from django.views.generic import TemplateView,View
 from django.urls import reverse_lazy
 from django.contrib.auth import authenticate, login, logout
@@ -247,3 +249,60 @@ class UserLoginView(LoginView):
     
 class UserLogoutView(LogoutView):
     next_page = reverse_lazy('home')    
+class FarmerPersonView(View):
+    template_name= 'FarmerPerson.html'
+    def get(self, request,farmer_id, *args, **kwargs):
+        farmerPerson =Farmer.objects.get(pk=farmer_id)
+        personName = farmerPerson.user.name
+        personCountry=farmerPerson.country
+        personPostalCode=farmerPerson.postal_code
+        personPhone=farmerPerson.user.phone
+        context = {
+            'farmer': farmerPerson,
+            'name': personName,
+            'country':personCountry,
+            'postal':personPostalCode,
+            'phone':personPhone,
+        }
+        return render(request,self.template_name,context)
+    
+
+class PostView(View):
+    template_name = 'show.html'
+
+    def get(self, request, id):
+      context = {}
+      try:
+         post_id = int(id)
+         if post_id < 1:
+            raise ValueError("Product id must be 1 or greater")
+         post = get_object_or_404(Post, pk=post_id)
+      except (ValueError, IndexError):
+         # If the product id is not valid, redirect to the home page
+         return HttpResponseRedirect(reverse('error'))
+      
+
+      post = get_object_or_404(Post, pk=post_id) 
+      name=post.name
+      stock=post.stock
+      delivery=post.delivery_date
+      farmer_name=post.farmer.user.name
+      farmer_number=post.farmer.user.phone
+
+      context = {
+          
+          'farmer_name': farmer_name,
+          'farmer_number':farmer_number,
+          'name': name,
+          'stock': stock,
+          'delivery':delivery,
+        }
+         
+      return render(request, self.template_name, context)
+
+class ErrorView(TemplateView):
+    template_name='error_page.html'
+
+
+class LandingPageView(TemplateView):
+    template_name='landingPage.html'
