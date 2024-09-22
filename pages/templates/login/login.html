@@ -1,0 +1,15 @@
+<!-- myapp/templates/myapp/login.html -->
+{% extends 'base.html' %}
+
+{% block title %}Iniciar Sesión{% endblock %}
+
+{% block content %}
+    <h2>Iniciar Sesión</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }} <!-- Formulario de Login incorporado de Django -->
+        <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+    </form>
+    <hr>
+    <p>¿No tienes una cuenta? <a href="{% url 'register_select_type' %}" class="btn btn-success">Registrarse</a></p>
+{% endblock %}

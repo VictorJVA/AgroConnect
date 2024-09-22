@@ -1,0 +1,20 @@
+<!-- myapp/templates/myapp/register_select_type.html -->
+{% extends 'base.html' %}
+
+{% block title %}Seleccionar Tipo de Usuario{% endblock %}
+
+{% block content %}
+    <h2>Registrarse</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="user_type">¿Qué tipo de usuario eres?</label>
+            <select class="form-control" id="user_type" name="user_type" required>
+                <option value="">Selecciona...</option>
+                <option value="farmer">Agricultor</option>
+                <option value="driver">Camionero</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Continuar</button>
+    </form>
+{% endblock %}

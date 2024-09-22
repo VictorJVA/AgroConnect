@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Registrar Agricultor - Agroconnect{% endblock %}
+
+{% block header_title %}Registro de Agricultor{% endblock %}
+
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h2>Registro de Agricultor</h2>
+            <form method="post">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4>Información de Usuario</h4>
+                        {{ form.as_p }} <!-- Formulario de Usuario -->
+                    </div>
+                    <div class="col-md-6">
+                        <h4>Perfil de Agricultor</h4>
+                        {{ farmer_form.as_p }} <!-- Formulario de Farmer -->
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-success">Registrarse</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
