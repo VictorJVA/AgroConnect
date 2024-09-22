@@ -6,7 +6,7 @@ from django.urls import reverse_lazy
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.views import LoginView, LogoutView
 from .forms import ProductForm, OrderForm, UserRegisterForm, FarmerForm, DriverForm, TruckForm
-from pages.models import Farmer, Driver, Truck, Post,Order,Farmer, Driver
+from pages.models import Farmer, Driver, Truck, Post,Order,Farmer, Driver, User
 from django.views.generic import TemplateView, FormView
 from datetime import datetime
 from django.contrib import messages
@@ -248,56 +248,56 @@ class UserLoginView(LoginView):
         return redirect('home')
     
 class UserLogoutView(LogoutView):
-    next_page = reverse_lazy('home')    
+    next_page = reverse_lazy('home')   
+
 class FarmerPersonView(View):
     template_name= 'FarmerPerson.html'
-    def get(self, request,farmer_id, *args, **kwargs):
-        farmerPerson =Farmer.objects.get(pk=farmer_id)
-        personName = farmerPerson.user.name
+    def get(self, request,id, *args, **kwargs):
+        farmerPerson =Farmer.objects.get(pk=id)
         personCountry=farmerPerson.country
         personPostalCode=farmerPerson.postal_code
-        personPhone=farmerPerson.user.phone
+
+        user_id= farmerPerson.user_id
+        user= get_object_or_404(User,pk=user_id)
+        name=user.name
+        phone=user.phone
         context = {
+            'name':name,
             'farmer': farmerPerson,
-            'name': personName,
             'country':personCountry,
             'postal':personPostalCode,
-            'phone':personPhone,
+            'phone':phone,
         }
         return render(request,self.template_name,context)
     
-
 class PostView(View):
     template_name = 'show.html'
 
     def get(self, request, id):
-      context = {}
-      try:
-         post_id = int(id)
-         if post_id < 1:
-            raise ValueError("Product id must be 1 or greater")
-         post = get_object_or_404(Post, pk=post_id)
-      except (ValueError, IndexError):
-         # If the product id is not valid, redirect to the home page
-         return HttpResponseRedirect(reverse('error'))
-      
-
-      post = get_object_or_404(Post, pk=post_id) 
+      post = get_object_or_404(Post, pk=id) 
       name=post.name
       stock=post.stock
+      country= post.farmer.country
+      origin=post.Origin
+      destination= post.Destination
       delivery=post.delivery_date
-      farmer_name=post.farmer.user.name
-      farmer_number=post.farmer.user.phone
+      farmer_id=post.farmer_id
+      userId=post.farmer.user_id
+      user= get_object_or_404(User,pk=userId)
+      farmerName=user.name
+      farmerPhone=user.phone      
 
-      context = {
-          
-          'farmer_name': farmer_name,
-          'farmer_number':farmer_number,
+      context = {      
+          'farmer_id':farmer_id,    
+          'farmer_name': farmerName,
           'name': name,
           'stock': stock,
           'delivery':delivery,
-        }
-         
+          'country':country,
+          'origin':origin,
+          'destination':destination,
+          'phone':farmerPhone
+        }         
       return render(request, self.template_name, context)
 
 class ErrorView(TemplateView):

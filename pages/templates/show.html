@@ -14,8 +14,12 @@ rounded-start">
                 </h5>
                 <p> stock: {{stock}}</p>
                 <p>famer: {{farmer_name}}</p>
+                <p>country: {{country}}</p>
+                <p>origin: {{origin}}</p>
+                <p>destination: {{destination}}</p>
                 <p> delivery due date: {{delivery}}</p>
-                <p><a href="#">contact {{farmer_name}} here</a></p>
+                <p>wanna learn more about {{name}} <a href="{% url 'farmer_person' farmer_id %}">click here</a></p>
+                <p><a href="https://wa.me{{phone}}">contact {{farmer_name}} here</a></p>
             </div>
         </div>
     </div>

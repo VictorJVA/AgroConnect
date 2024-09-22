@@ -38,3 +38,11 @@ class Order(models.Model):
     PostId=models.ForeignKey('Post',on_delete=models.CASCADE,null=False)
     TransportId=models.ForeignKey('Driver',on_delete=models.CASCADE,null=False)
     Amount= models.IntegerField()
+
+class User(models.Model):
+    name = models.CharField(max_length=50)
+    email = models.EmailField(max_length=50)
+    password = models.CharField(max_length=50)
+    phone = models.CharField(max_length=50)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
