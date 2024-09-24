@@ -15,4 +15,5 @@ urlpatterns = [
     path("post/<int:id>/", views.PostView.as_view(), name="show_post"),
     path("error/", views.ErrorView.as_view(),name='error'),
     path('person/<int:id>', views.FarmerPersonView.as_view(), name='farmer_person'),
+    path('Farmer/<int:farmer_id>/my-orders', views.FarmerMyOrdersView.as_view(), name='farmer_my_orders')
 ]    

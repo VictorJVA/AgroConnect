@@ -27,6 +27,21 @@ class FarmerHomePageView(View):
         }
         return render(request,self.template_name,context)
     
+class FarmerMyOrdersView(View):
+    template_name='farmer_My_orders.html'
+
+    def get(self, request, farmer_id, *args, **kwargs):
+        # Get the current date and time
+        now = datetime.now()
+
+        # Ensure the farmer exists
+        farmer = get_object_or_404(Farmer, id=farmer_id)
+
+        # Filter orders where the associated post's delivery date is in the future
+        orders = Order.objects.filter(PostId__delivery_date__gte=now, PostId__stock__gt=0, PostId__farmer=farmer )
+
+        return render(request, self.template_name , {'orders': orders, 'farmer': farmer})
+    
 class CreateProductView(View):
     def get(self, request, farmer_id, *args, **kwargs):
         # Get the farmer by ID from the URL
