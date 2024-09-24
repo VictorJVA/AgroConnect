@@ -18,7 +18,8 @@ rounded-start">
                 <p>origin: {{origin}}</p>
                 <p>destination: {{destination}}</p>
                 <p> delivery due date: {{delivery}}</p>
-                <p>wanna learn more about {{name}} <a href="{% url 'farmer_person' farmer_id %}">click here</a></p>
+                <p>wanna learn more about {{farmer_name}} <a href="{% url 'farmer_person' farmer_id %}">click here</a>
+                </p>
                 <p><a href="https://wa.me{{phone}}">contact {{farmer_name}} here</a></p>
             </div>
         </div>
