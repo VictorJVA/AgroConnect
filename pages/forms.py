@@ -25,6 +25,17 @@ class UserRegisterForm(UserCreationForm):
     first_name = forms.CharField(max_length=30, label='Nombre')
     last_name = forms.CharField(max_length=30, label='Apellido')
 
+    password1 = forms.CharField(
+        label="Contraseña",
+        widget=forms.PasswordInput,
+        help_text="",
+    )
+    password2 = forms.CharField(
+        label="Confirmar Contraseña",
+        widget=forms.PasswordInput,
+        help_text="",
+    )
+
     class Meta:
         model = User
         fields = ['username', 'email', 'first_name', 'last_name', 'password1', 'password2']
@@ -33,6 +44,12 @@ class UserRegisterForm(UserCreationForm):
             'password1': 'Contraseña',
             'password2': 'Confirmar Contraseña',
         }
+
+    def __init__(self, *args, **kwargs):
+        super(UserRegisterForm, self).__init__(*args, **kwargs)
+        self.fields['username'].help_text = ""
+        self.fields['password1'].help_text = ""
+        self.fields['password2'].help_text = ""
 
 class FarmerForm(forms.ModelForm):
     class Meta:
