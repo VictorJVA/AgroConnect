@@ -247,8 +247,13 @@ class UserLoginView(LoginView):
         messages.error(self.request, 'No tienes un perfil de Farmer o Driver asociado.')
         return redirect('home')
     
-class UserLogoutView(LogoutView):
-    next_page = reverse_lazy('home')    
+class UserLogoutView(View):
+    def get(self, request, *args, **kwargs):
+        # Cierra la sesión del usuario
+        logout(request)        
+        # Redirige al usuario a la página de inicio o cualquier otra página
+        return redirect('home')
+
 class FarmerPersonView(View):
     template_name= 'FarmerPerson.html'
     def get(self, request,farmer_id, *args, **kwargs):
