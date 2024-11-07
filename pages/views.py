@@ -276,10 +276,10 @@ class FarmerPersonView(View):
         personCountry=farmerPerson.country
         personPostalCode=farmerPerson.postal_code
 
-        user_id= farmerPerson.user_id
-        user= get_object_or_404(User,pk=user_id)
-        name=user.name
-        phone=user.phone
+        #user_id= farmerPerson.user_id
+        #user= get_object_or_404(User,pk=user_id)
+        name=farmerPerson.user
+        phone= farmerPerson.phone
         context = {
             'name':name,
             'farmer': farmerPerson,
@@ -300,11 +300,11 @@ class PostView(View):
       origin=post.Origin
       destination= post.Destination
       delivery=post.delivery_date
-      farmer_id=post.farmer_id
-      userId=post.farmer.user_id
-      user= get_object_or_404(User,pk=userId)
-      farmerName=user.name
-      farmerPhone=user.phone      
+      farmer_id=post.farmer.id
+      #userId=post.farmer.user
+      #user= get_object_or_404(User,pk=userId)
+      farmerName= post.farmer.user
+      farmerPhone= post.farmer.phone      
 
       context = {      
           'farmer_id':farmer_id,    
