@@ -10,6 +10,8 @@ from pages.models import Farmer, Driver, Truck, Post,Order,Farmer, Driver, User
 from django.views.generic import TemplateView, FormView
 from datetime import datetime
 from django.contrib import messages
+from .interfaces import FarmerDataAccessInterface, OrderDataAccessInterface, DriverDataAccessInterface
+from .utils import FarmerDataAccess, OrderDataAccess, DriverDataAccess
 # Create your views here.
 
 
@@ -17,30 +19,30 @@ class HomePageView(TemplateView):
     template_name = 'home.html'
 
 class FarmerHomePageView(View):
-    template_name= 'FarmerHome.html'
-    def get(self, request,farmer_id, *args, **kwargs):
-        farm=Farmer.objects.get(pk=farmer_id)
-        products = Post.objects.filter(farmer=farm)  # Get all products from the database
+    template_name = 'FarmerHome.html'
+
+    def __init__(self, farmer_data_access: FarmerDataAccessInterface = FarmerDataAccess()):
+        self.farmer_data_access = farmer_data_access
+
+    def get(self, request, farmer_id, *args, **kwargs):
+        farm = self.farmer_data_access.get_farmer(farmer_id)
+        products = self.farmer_data_access.get_products(farm)
         context = {
             'farmer': farm,
             'products': products,
         }
-        return render(request,self.template_name,context)
+        return render(request, self.template_name, context)
     
 class FarmerMyOrdersView(View):
-    template_name='farmer_My_orders.html'
+    template_name = 'farmer_My_orders.html'
+
+    def __init__(self, order_data_access: OrderDataAccessInterface = OrderDataAccess()):
+        self.order_data_access = order_data_access
 
     def get(self, request, farmer_id, *args, **kwargs):
-        # Get the current date and time
-        now = datetime.now()
-
-        # Ensure the farmer exists
         farmer = get_object_or_404(Farmer, id=farmer_id)
-
-        # Filter orders where the associated post's delivery date is in the future
-        orders = Order.objects.filter(PostId__delivery_date__gte=now, PostId__stock__gt=0, PostId__farmer=farmer )
-
-        return render(request, self.template_name , {'orders': orders, 'farmer': farmer})
+        orders = self.order_data_access.get_orders(farmer)
+        return render(request, self.template_name, {'orders': orders, 'farmer': farmer})
     
 class CreateProductView(View):
     def get(self, request, farmer_id, *args, **kwargs):
@@ -66,52 +68,43 @@ class CreateProductView(View):
 
 
 class DriverHomepageView(View):
+    def __init__(self, driver_data_access: DriverDataAccessInterface = DriverDataAccess()):
+        self.driver_data_access = driver_data_access
+
     def get(self, request, driver_id, *args, **kwargs):
-        # Get the current date and time
+        driver = self.driver_data_access.get_driver(driver_id)
         now = datetime.now()
-
-        # Ensure the driver exists
-        driver = get_object_or_404(Driver, id=driver_id)
-
-        # Filter orders where the associated post's delivery date is in the future
         orders = Order.objects.filter(PostId__delivery_date__gte=now, PostId__stock__gt=0, TransportId=driver)
-
         return render(request, 'DriverHome.html', {'orders': orders, 'driver': driver})
     
 
 class AvailableOrdersView(View):
+    def __init__(self, driver_data_access: DriverDataAccessInterface = DriverDataAccess(), order_data_access: OrderDataAccessInterface = OrderDataAccess()):
+        self.driver_data_access = driver_data_access
+        self.order_data_access = order_data_access
+
     def get(self, request, driver_id, *args, **kwargs):
-        # Get the current date and time
-        now = datetime.now()
-
-        # Ensure the driver exists
-        driver = get_object_or_404(Driver, id=driver_id)
-
-        # Filter orders where the associated post's delivery date is in the future and not assigned to any driver
-        available_posts = Post.objects.filter(delivery_date__gte=now, stock__gt=0)
-
+        driver = self.driver_data_access.get_driver(driver_id)
+        available_posts = self.order_data_access.get_available_orders()
         return render(request, 'available_orders.html', {'posts': available_posts, 'driver': driver})
 
     def post(self, request, driver_id, *args, **kwargs):
-        driver = get_object_or_404(Driver, id=driver_id)
+        driver = self.driver_data_access.get_driver(driver_id)
         post_id = request.POST.get('post_id')
         amount = request.POST.get('amount')
 
         if post_id and amount:
             post = get_object_or_404(Post, id=post_id)
             if post.stock >= int(amount):
-                # Create a new order
                 Order.objects.create(
                     PostId=post,
                     Amount=amount,
                     TransportId=driver
                 )
-                # Update the stock of the post
                 post.stock -= int(amount)
                 post.save()
-                # Redirect to a confirmation page or the driver homepage
                 return redirect('driver_homepage', driver_id=driver_id)
-        return redirect('available_orders', driver_id=driver_id)
+        return redirect('available_orders', driver_id=driver_id)        
     
 class RegisterSelectTypeView(TemplateView):
     template_name = 'login/register_select_type.html'
