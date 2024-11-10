@@ -1,5 +1,8 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
+
+from django.conf import settings
+from django.conf.urls.i18n import i18n_patterns
 
 urlpatterns = [
     path("", views.HomePageView.as_view(), name='home'),
@@ -15,5 +18,6 @@ urlpatterns = [
     path("post/<int:id>/", views.PostView.as_view(), name="show_post"),
     path("error/", views.ErrorView.as_view(),name='error'),
     path('person/<int:id>', views.FarmerPersonView.as_view(), name='farmer_person'),
-    path('Farmer/<int:farmer_id>/my-orders', views.FarmerMyOrdersView.as_view(), name='farmer_my_orders')
+    path('Farmer/<int:farmer_id>/my-orders', views.FarmerMyOrdersView.as_view(), name='farmer_my_orders'),
+    path('set_language/', views.SetLanguage.as_view(), name='set_language'),
 ]    

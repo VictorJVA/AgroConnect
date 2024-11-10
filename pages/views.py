@@ -12,6 +12,8 @@ from datetime import datetime
 from django.contrib import messages
 from .interfaces import FarmerDataAccessInterface, OrderDataAccessInterface, DriverDataAccessInterface
 from .utils import FarmerDataAccess, OrderDataAccess, DriverDataAccess
+from django.utils.translation import activate
+from django.conf import settings
 # Create your views here.
 
 
@@ -318,3 +320,29 @@ class ErrorView(TemplateView):
 
 class LandingPageView(TemplateView):
     template_name='landingPage.html'
+
+
+class SetLanguage(TemplateView):
+    template_name='setLanguage.html'
+
+    def post(self, request, *args, **kwargs):
+        # Obtiene el idioma seleccionado desde los datos POST (por ejemplo: 'es' o 'en')
+        lang_code = request.POST.get('language')
+
+        # Verifica que el código de idioma esté en los idiomas permitidos en settings
+        if lang_code in dict(settings.LANGUAGES):
+            # Cambia el idioma de la sesión y activa el idioma seleccionado
+            request.session['django_language'] = lang_code
+            activate(lang_code)
+
+        # Redirige a la página de inicio o a otra URL según sea necesario
+        return redirect('home')
+
+    #def get(self, request, *args, **kwargs):
+        # Obtiene el idioma seleccionado desde los parámetros GET (ejemplo: ?lang=en)
+        #lang_code = request.GET.get('language')
+
+        #if lang_code:
+            #activate(lang_code)
+        #return self.render_to_response(self.get_context_data())
+
