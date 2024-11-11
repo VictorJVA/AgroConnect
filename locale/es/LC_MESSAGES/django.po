@@ -1,0 +1,220 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-11-11 14:50-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: .\pages\templates\DriverHome.html:36
+msgid "ordenes actuales"
+msgstr ""
+
+#: .\pages\templates\DriverHome.html:41
+#: .\pages\templates\available_orders.html:67
+#: .\pages\templates\farmer_my_orders.html:40
+msgid "cantidad"
+msgstr "Cantidad"
+
+#: .\pages\templates\DriverHome.html:42
+#: .\pages\templates\available_orders.html:42
+#: .\pages\templates\farmer_my_orders.html:41
+msgid "nombre de la publicacion"
+msgstr "Nombre de la publicacion"
+
+#: .\pages\templates\DriverHome.html:43
+#: .\pages\templates\available_orders.html:43
+#: .\pages\templates\farmer_my_orders.html:42
+msgid "fecha de recogida"
+msgstr "Fecha de recogida"
+
+#: .\pages\templates\DriverHome.html:44
+#: .\pages\templates\available_orders.html:44
+#: .\pages\templates\farmer_my_orders.html:43
+msgid "fecha de llegada"
+msgstr "Fecha de llegada"
+
+#: .\pages\templates\DriverHome.html:57
+msgid "no hay ordenes actuales"
+msgstr "No hay ordenes"
+
+#: .\pages\templates\FarmerHome.html:31
+msgid "mis ordenes"
+msgstr "Mis ordenes"
+
+#: .\pages\templates\FarmerHome.html:41
+msgid "Bienvenidos al portal del granjero"
+msgstr "Bienvenido al portal del granjero"
+
+#: .\pages\templates\FarmerHome.html:42
+msgid "brindando siempre la frescura del campo hasta la mesa de la casa"
+msgstr "Brindando siempre la frescura del campo hasta la mesa de la casa"
+
+#: .\pages\templates\FarmerHome.html:43
+msgid "crear nueva publicacion"
+msgstr "Crear nueva publicacion"
+
+#: .\pages\templates\FarmerHome.html:48
+msgid "Productos"
+msgstr "Productos"
+
+#: .\pages\templates\FarmerHome.html:68
+msgid "no hay productos"
+msgstr "No hay productos"
+
+#: .\pages\templates\FarmerPerson.html:12 .\pages\templates\show.html:18
+#, python-format
+msgid "pais: %(country)s"
+msgstr "Pais: %(country)s"
+
+#: .\pages\templates\FarmerPerson.html:13
+#, python-format
+msgid "codigo postal : %(postal)s"
+msgstr "Codigo postal : %(postal)s"
+
+#: .\pages\templates\FarmerPerson.html:14
+#, python-format
+msgid "contacte a %(name)s aqui"
+msgstr "Contacte a %(name)s aqui"
+
+#: .\pages\templates\available_orders.html:8
+msgid "ordenes disponibles"
+msgstr "Ordenes disponibles"
+
+#: .\pages\templates\available_orders.html:34
+msgid "oredenes disponibles"
+msgstr "Oredenes disponibles"
+
+#: .\pages\templates\available_orders.html:41
+msgid "seleccionar"
+msgstr "Seleccionar"
+
+#: .\pages\templates\available_orders.html:45
+msgid "stock disponible"
+msgstr "Stock disponible"
+
+#: .\pages\templates\available_orders.html:61
+msgid "no hay nada"
+msgstr "No hay nada"
+
+#: .\pages\templates\available_orders.html:70
+msgid "aceptar orden"
+msgstr "Aceptar orden"
+
+#: .\pages\templates\base.html:29
+msgid "inicio"
+msgstr "Inicio"
+
+#: .\pages\templates\base.html:33
+msgid "cerra sesion"
+msgstr "Cerrar sesion"
+
+#: .\pages\templates\base.html:37
+msgid "iniciar sesion"
+msgstr "Iniciar sesion"
+
+#: .\pages\templates\base.html:40
+msgid "registrarse"
+msgstr "Registrarse"
+
+#: .\pages\templates\base.html:51
+msgid "Bienvenido a Agroconnect"
+msgstr "Bienvenido a Agroconnect"
+
+#: .\pages\templates\base.html:52
+msgid "Conecta con los mejores servicios agrícolas"
+msgstr "Conecta con los mejores servicios agricolas"
+
+#: .\pages\templates\createPost.html:26
+msgid "sobre nosotros"
+msgstr "Sobre nosotros"
+
+#: .\pages\templates\createPost.html:29
+msgid "productos"
+msgstr "Productos"
+
+#: .\pages\templates\createPost.html:32
+msgid "anadir producto"
+msgstr "ANadir Producto"
+
+#: .\pages\templates\createPost.html:35
+msgid "contactenos"
+msgstr "Contactenos"
+
+#: .\pages\templates\createPost.html:44
+msgid "Añadir nuevo producto"
+msgstr "ANadir nuevo producto"
+
+#: .\pages\templates\createPost.html:50
+msgid "añadir producto"
+msgstr "ANadir producto"
+
+#: .\pages\templates\farmer_my_orders.html:25
+msgid "todos los post"
+msgstr "Todos los post"
+
+#: .\pages\templates\farmer_my_orders.html:35
+msgid "ordenes aceptadas por nuestros conductores"
+msgstr "Ordenes aceptadas por nuestros conductores"
+
+#: .\pages\templates\farmer_my_orders.html:44
+msgid "conductor"
+msgstr "Conductor"
+
+#: .\pages\templates\farmer_my_orders.html:58
+msgid "nada"
+msgstr "Nada"
+
+#: .\pages\templates\home.html:6
+msgid "Bienvenido a la página principal"
+msgstr "Bienvenido a la pagina principal"
+
+#: .\pages\templates\setLanguage.html:8
+msgid "Cambiar idioma"
+msgstr "Cambiar idioma"
+
+#: .\pages\templates\show.html:16
+#, python-format
+msgid " disponible: %(stock)s"
+msgstr "disponible: %(stock)s"
+
+#: .\pages\templates\show.html:17
+#, python-format
+msgid "granjero: %(farmer_name)s"
+msgstr "granjero: %(farmer_name)s"
+
+#: .\pages\templates\show.html:19
+#, python-format
+msgid "origen: %(origin)s"
+msgstr "origen: %(origin)s"
+
+#: .\pages\templates\show.html:20
+#, python-format
+msgid "destino: %(destination)s"
+msgstr "destino: %(destination)s"
+
+#: .\pages\templates\show.html:21
+#, python-format
+msgid "fecha de entrega: %(delivery)s"
+msgstr "fecha de entrega: %(delivery)s"
+
+#: .\pages\templates\show.html:22
+#, python-format
+msgid "conozca mas de %(farmer_name)s"
+msgstr "conozca mas de %(farmer_name)s"
+
+#: .\pages\templates\show.html:24
+#, python-format
+msgid "contacte a %(farmer_name)s aqui"
+msgstr "conozca mas de %(farmer_name)s"
