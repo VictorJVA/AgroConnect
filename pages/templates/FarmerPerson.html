@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% block title %} {{name}} {% endblock %}
 {% block content %}
 <div class="card mb-3">
@@ -8,10 +9,9 @@
                 <h5 class="card-title">
                     {{name}}
                 </h5>
-                <p> country: {{country}}</p>
-                <p> postal code : {{postal}}</p>
-                <p> delivery due date: {{delivery}}</p>
-                <p>interested? <a href="https://wa.me{{phone}}">contact {{name}} here</a></p>
+                <p>{% blocktrans %}pais: {{country}}{% endblocktrans %}</p>
+                <p>{% blocktrans %}codigo postal : {{postal}}{% endblocktrans %}</p>
+                <p>interested? <a href="https://wa.me{{phone}}">{% blocktrans %}contacte a {{name}} aqui{% endblocktrans %}</a></p>
             </div>
         </div>
     </div>

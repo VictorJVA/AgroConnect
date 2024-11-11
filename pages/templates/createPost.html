@@ -1,3 +1,5 @@
+{% load i18n %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,16 +23,16 @@
                         <a class="nav-link active" aria-current="page" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About Us</a>
+                        <a class="nav-link" href="#">{% trans "sobre nosotros" %}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Products</a>
+                        <a class="nav-link" href="#">{% trans "productos" %}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Add Product</a>
+                        <a class="nav-link" href="#">{% trans "anadir producto" %}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
+                        <a class="nav-link" href="#">{% trans "contactenos" %}</a>
                     </li>
                 </ul>
             </div>
@@ -39,13 +41,13 @@
 
     <!-- Create Product Form -->
     <div class="container py-5">
-        <h2 class="text-center mb-4">Add a New Product</h2>
+        <h2 class="text-center mb-4">{% trans "Añadir nuevo producto" %}</h2>
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <form method="post">
                     {% csrf_token %}
                     {{ form.as_p }}
-                    <button type="submit" class="btn btn-success btn-block">Add Product</button>
+                    <button type="submit" class="btn btn-success btn-block">{% trans "añadir producto" %}</button>
                 </form>
             </div>
         </div>

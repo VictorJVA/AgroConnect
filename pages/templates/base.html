@@ -26,18 +26,18 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}"
-                            href="{% url 'home' %}">Inicio</a>
+                            href="{% url 'home' %}">{% trans "inicio" %}</a>
                     </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'logout' %}">Cerrar Sesión</a>
+                        <a class="nav-link" href="{% url 'logout' %}">{% trans "cerra sesion" %}</a>
                     </li>
                     {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'login' %}">Iniciar Sesión</a>
+                        <a class="nav-link" href="{% url 'login' %}">{% trans "iniciar sesion" %}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'register_select_type' %}">Registrarse</a>
+                        <a class="nav-link" href="{% url 'register_select_type' %}">{% trans "registrarse" %}</a>
                     </li>
                     {% endif %}
                 </ul>

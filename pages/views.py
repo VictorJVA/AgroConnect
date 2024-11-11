@@ -14,6 +14,8 @@ from .interfaces import FarmerDataAccessInterface, OrderDataAccessInterface, Dri
 from .utils import FarmerDataAccess, OrderDataAccess, DriverDataAccess
 from django.utils.translation import activate
 from django.conf import settings
+from django.utils.translation import gettext_lazy as _
+
 # Create your views here.
 
 
