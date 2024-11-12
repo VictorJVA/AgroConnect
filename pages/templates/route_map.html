@@ -52,6 +52,13 @@
     <h1>Route to Destination</h1>
     <div id="map" style="height: 500px; width: 100%;"></div>
 
-    <button onclick="window.location.href='/'" style="margin-top: 20px;">Go to Home</button>
+    <script>
+        const homepageUrl = "{% url 'driver_homepage' driver_id %}";
+    </script>
+    
+    <button onclick="window.location.href=homepageUrl;" style="margin-top: 20px;">
+        Go to Home
+    </button>
+    
 </body>
 </html>

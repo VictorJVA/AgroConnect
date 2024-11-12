@@ -41,13 +41,13 @@ class jsonView(View):
         return JsonResponse(posts_data, safe=False)
 
 class RouteMapView(View):
-    def get(self, request, order_id, *args, **kwargs):
-        order = get_object_or_404(Order, id=order_id)
-        post = order.PostId 
+    def get(self, request, driver_id, order_id, *args, **kwargs):
+        post = get_object_or_404(Post, id=order_id)
 
         context = {
             'google_maps_api_key': 'AIzaSyAcpt3YUZb-WCQ9JqBMyjy6lMEDJot29lM',
             'destination': post.Destination,
+            'driver_id': driver_id,  # Include driver_id in the context if needed
         }
 
         return render(request, 'route_map.html', context)
