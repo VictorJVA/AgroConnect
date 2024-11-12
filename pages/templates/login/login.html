@@ -1,15 +1,16 @@
 <!-- myapp/templates/myapp/login.html -->
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block title %}Iniciar Sesión{% endblock %}
 
 {% block content %}
-    <h2>Iniciar Sesión</h2>
+    <h2>{% trans "sesion" %}</h2>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }} <!-- Formulario de Login incorporado de Django -->
-        <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+        <button type="submit" class="btn btn-primary">{% trans "iniciar sesion" %}</button>
     </form>
     <hr>
-    <p>¿No tienes una cuenta? <a href="{% url 'register_select_type' %}" class="btn btn-success">Registrarse</a></p>
+    <p>{% trans "¿No tienes una cuenta?" %}<a href="{% url 'register_select_type' %}" class="btn btn-success">{% trans "Regis..." %}</a></p>
 {% endblock %}

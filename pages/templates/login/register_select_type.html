@@ -1,20 +1,21 @@
 <!-- myapp/templates/myapp/register_select_type.html -->
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block title %}Seleccionar Tipo de Usuario{% endblock %}
 
 {% block content %}
-    <h2>Registrarse</h2>
+    <h2>{% trans "registrarse" %}</h2>
     <form method="post">
         {% csrf_token %}
         <div class="form-group">
-            <label for="user_type">¿Qué tipo de usuario eres?</label>
+            <label for="user_type">{% trans "que tipo de usuario eres?" %}</label>
             <select class="form-control" id="user_type" name="user_type" required>
                 <option value="">Selecciona...</option>
-                <option value="farmer">Agricultor</option>
-                <option value="driver">Camionero</option>
+                <option value="farmer">{% trans "agricultor" %}</option>
+                <option value="driver">{% trans "camionero" %}</option>
             </select>
         </div>
-        <button type="submit" class="btn btn-primary">Continuar</button>
+        <button type="submit" class="btn btn-primary">{% trans "continuar" %}</button>
     </form>
 {% endblock %}

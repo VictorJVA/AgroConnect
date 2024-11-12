@@ -20,4 +20,5 @@ urlpatterns = [
     path('person/<int:id>', views.FarmerPersonView.as_view(), name='farmer_person'),
     path('Farmer/<int:farmer_id>/my-orders', views.FarmerMyOrdersView.as_view(), name='farmer_my_orders'),
     path('set_language/', views.SetLanguage.as_view(), name='set_language'),
+    path('change-language/', views.LanguageChangeView.as_view(), name='change_language'),
 ]    

@@ -348,3 +348,16 @@ class SetLanguage(TemplateView):
             #activate(lang_code)
         #return self.render_to_response(self.get_context_data())
 
+class LanguageChangeView(View):
+    def post(self, request, *args, **kwargs):
+        # Obtén el idioma del formulario enviado
+        language = request.POST.get('language')
+        # Cambia el idioma usando 'activate'
+        if language:
+            activate(language)
+            request.session['LANGUAGE_SESSION_KEY'] = language  # Guarda el idioma en la sesión
+        return HttpResponseRedirect(reverse('change_language'))
+    
+    def get(self, request, *args, **kwargs):
+        # Renderiza la plantilla para seleccionar idioma
+        return render(request, 'change_language.html')

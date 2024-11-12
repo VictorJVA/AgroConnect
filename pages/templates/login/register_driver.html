@@ -1,28 +1,29 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block title %}Registrar Driver - Agroconnect{% endblock %}
 
-{% block header_title %}Registro de Driver{% endblock %}
+{% block header_title %}{% trans "istro" %}{% endblock %}
 
 {% block content %}
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <h2>Registro de Driver</h2>
+            <h2>{% trans "istro" %}</h2>
             <form method="post">
                 {% csrf_token %}
                 <div class="row">
                     <div class="col-md-6">
-                        <h4>Información de Usuario</h4>
+                        <h4>{% trans "info" %}</h4>
                         {{ form.as_p }} <!-- Formulario de Usuario -->
                     </div>
                     <div class="col-md-6">
-                        <h4>Perfil de Driver</h4>
+                        <h4>{% trans "detalles" %}</h4>
                         {{ driver_form.as_p }} <!-- Formulario de Driver -->
-                        <h4>Información del Truck</h4>
+                        <h4>{% trans "informacion del camion" %}</h4>
                         {{ truck_form.as_p }} <!-- Formulario de Truck -->
                     </div>
                 </div>
-                <button type="submit" class="btn btn-success">Registrarse</button>
+                <button type="submit" class="btn btn-success">{% trans "registrarse" %}</button>
             </form>
         </div>
     </div>

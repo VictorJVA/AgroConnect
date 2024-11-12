@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-11 14:53-0500\n"
+"POT-Creation-Date: 2024-11-12 18:18-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,9 +17,95 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\pages\forms.py:21
+msgid "Enter amount"
+msgstr "Enter amount"
+
+#: .\pages\forms.py:25
+msgid "Correo Electrónico"
+msgstr "Email"
+
+#: .\pages\forms.py:26
+msgid "Nombre"
+msgstr "Name"
+
+#: .\pages\forms.py:27
+msgid "Apellido"
+msgstr "Lastname"
+
+#: .\pages\forms.py:30 .\pages\forms.py:45
+msgid "Contraseña"
+msgstr "Password"
+
+#: .\pages\forms.py:35 .\pages\forms.py:46
+msgid "Confirmar Contraseña"
+msgstr "Confirm password"
+
+#: .\pages\forms.py:44
+msgid "user"
+msgstr "UserName"
+
+#: .\pages\forms.py:60
+msgid "País"
+msgstr "Country"
+
+#: .\pages\forms.py:61
+msgid "Estado/Provincia"
+msgstr "State/Province"
+
+#: .\pages\forms.py:62
+msgid "Código Postal"
+msgstr "Postal Code"
+
+#: .\pages\forms.py:63 .\pages\forms.py:78
+msgid "Teléfono"
+msgstr "Phone"
+
+#: .\pages\forms.py:66
+msgid "Ingresa tu país"
+msgstr "Enter your country"
+
+#: .\pages\forms.py:67
+msgid "Ingresa tu estado o provincia"
+msgstr "Enter your state or province"
+
+#: .\pages\forms.py:68
+msgid "Ingresa tu código postal"
+msgstr "Enter your postal code"
+
+#: .\pages\forms.py:69 .\pages\forms.py:82
+msgid "Ingresa tu número de teléfono"
+msgstr "Enter your phone number"
+
+#: .\pages\forms.py:77
+msgid "Descripción"
+msgstr "Description"
+
+#: .\pages\forms.py:81
+msgid "Ingresa una descripción breve sobre ti"
+msgstr "Enter a brief description about yourself"
+
+#: .\pages\forms.py:90
+msgid "Placa del Camión"
+msgstr "Truck license plate"
+
+#: .\pages\forms.py:93
+msgid "Ingresa la placa del camión"
+msgstr "Enter your trucks license plate"
+
+#: .\pages\templates\DriverHome.html:25
+#: .\pages\templates\available_orders.html:8
+msgid "ordenes disponibles"
+msgstr "Available orders"
+
+#: .\pages\templates\DriverHome.html:26 .\pages\templates\FarmerHome.html:32
+msgid "cierre s"
+msgstr "Log out"
+
 #: .\pages\templates\DriverHome.html:36
 msgid "ordenes actuales"
-msgstr ""
+msgstr "Current Orders"
 
 #: .\pages\templates\DriverHome.html:41
 #: .\pages\templates\available_orders.html:67
@@ -48,6 +134,10 @@ msgstr "Arrival date"
 #: .\pages\templates\DriverHome.html:57
 msgid "no hay ordenes actuales"
 msgstr "Empty"
+
+#: .\pages\templates\FarmerHome.html:28 .\pages\templates\createPost.html:29
+msgid "productos"
+msgstr "Products"
 
 #: .\pages\templates\FarmerHome.html:31
 msgid "mis ordenes"
@@ -88,10 +178,6 @@ msgstr "postal code : %(postal)s"
 msgid "contacte a %(name)s aqui"
 msgstr "contact %(name)s here"
 
-#: .\pages\templates\available_orders.html:8
-msgid "ordenes disponibles"
-msgstr "Available orders"
-
 #: .\pages\templates\available_orders.html:34
 msgid "oredenes disponibles"
 msgstr "Available orders"
@@ -120,11 +206,13 @@ msgstr "Home"
 msgid "cerra sesion"
 msgstr "Log out"
 
-#: .\pages\templates\base.html:37
+#: .\pages\templates\base.html:37 .\pages\templates\login\login.html:12
 msgid "iniciar sesion"
 msgstr "Log in"
 
 #: .\pages\templates\base.html:40
+#: .\pages\templates\login\register_driver.html:26
+#: .\pages\templates\login\register_select_type.html:8
 msgid "registrarse"
 msgstr "Resgister"
 
@@ -139,10 +227,6 @@ msgstr "Connect with the best farming services"
 #: .\pages\templates\createPost.html:26
 msgid "sobre nosotros"
 msgstr "About us"
-
-#: .\pages\templates\createPost.html:29
-msgid "productos"
-msgstr "Products"
 
 #: .\pages\templates\createPost.html:32
 msgid "anadir producto"
@@ -179,6 +263,67 @@ msgstr "Empty"
 #: .\pages\templates\home.html:6
 msgid "Bienvenido a la página principal"
 msgstr "Welcome to our homepage"
+
+#: .\pages\templates\login\login.html:8
+#, fuzzy
+#| msgid "cerra sesion"
+msgid "sesion"
+msgstr "Log out"
+
+#: .\pages\templates\login\login.html:15
+msgid "¿No tienes una cuenta?"
+msgstr "dont have an account yet?"
+
+#: .\pages\templates\login\login.html:15
+msgid "Regis..."
+msgstr "Resgister now"
+
+#: .\pages\templates\login\register_driver.html:6
+#: .\pages\templates\login\register_driver.html:11
+msgid "istro"
+msgstr "Trucker Register"
+
+#: .\pages\templates\login\register_driver.html:16
+#: .\pages\templates\login\register_farmer.html:16
+msgid "info"
+msgstr "Info"
+
+#: .\pages\templates\login\register_driver.html:20
+msgid "detalles"
+msgstr "Details"
+
+#: .\pages\templates\login\register_driver.html:22
+msgid "informacion del camion"
+msgstr "Truck Information"
+
+#: .\pages\templates\login\register_farmer.html:6
+#: .\pages\templates\login\register_farmer.html:11
+msgid "Registro de agricultor"
+msgstr "Farmer Register"
+
+#: .\pages\templates\login\register_farmer.html:20
+msgid "Perfil de agricultor"
+msgstr "Farmer Profile"
+
+#: .\pages\templates\login\register_farmer.html:24
+msgid "resitate"
+msgstr "Register"
+
+#: .\pages\templates\login\register_select_type.html:12
+msgid "que tipo de usuario eres?"
+msgstr "which user type are you?"
+
+#: .\pages\templates\login\register_select_type.html:15
+msgid "agricultor"
+msgstr "Farmer"
+
+#: .\pages\templates\login\register_select_type.html:16
+msgid "camionero"
+msgstr "Trucker"
+
+#: .\pages\templates\login\register_select_type.html:19
+msgid "continuar"
+msgstr "Continue"
 
 #: .\pages\templates\setLanguage.html:8
 msgid "Cambiar idioma"
@@ -218,3 +363,53 @@ msgstr "meet %(farmer_name)s"
 #, python-format
 msgid "contacte a %(farmer_name)s aqui"
 msgstr "contact %(farmer_name)s here"
+
+#, fuzzy
+#~| msgid "cerra sesion"
+#~ msgid "c sesio"
+#~ msgstr "Log out"
+
+#, fuzzy
+#~| msgid "conductor"
+#~ msgid "registro de conductor"
+#~ msgstr "Driver"
+
+#, fuzzy
+#~| msgid "nombre de la publicacion"
+#~ msgid "informacion de usuario"
+#~ msgstr "Post name"
+
+#, fuzzy
+#~| msgid "conductor"
+#~ msgid "perfil del conductor"
+#~ msgstr "Driver"
+
+#, fuzzy
+#~| msgid "nombre de la publicacion"
+#~ msgid "Nombre de Usuario"
+#~ msgstr "Post name"
+
+#, fuzzy
+#~| msgid "iniciar sesion"
+#~ msgid "ini ses"
+#~ msgstr "Log in"
+
+#, fuzzy
+#~| msgid "iniciar sesion"
+#~ msgid "cio de ion"
+#~ msgstr "Log in"
+
+#, fuzzy
+#~| msgid "registrarse"
+#~ msgid "Registrate"
+#~ msgstr "Resgister"
+
+#, fuzzy
+#~| msgid "iniciar sesion"
+#~ msgid "iniciar session"
+#~ msgstr "Log in"
+
+#, fuzzy
+#~| msgid "cerrar sesion"
+#~ msgid "cerrar sesion"
+#~ msgstr "Log out"

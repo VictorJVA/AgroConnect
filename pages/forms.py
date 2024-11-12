@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from .models import Post, Order, Farmer, Driver, Truck
+from django.utils.translation import gettext_lazy as _
 
 class ProductForm(forms.ModelForm):
     class Meta:
@@ -17,21 +18,21 @@ class OrderForm(forms.ModelForm):
         model = Order
         fields = ['Amount']
         widgets = {
-            'Amount': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Enter amount'}),
+            'Amount': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': _('Enter amount')}),
         }
 
 class UserRegisterForm(UserCreationForm):
-    email = forms.EmailField(required=True, label='Correo Electrónico')
-    first_name = forms.CharField(max_length=30, label='Nombre')
-    last_name = forms.CharField(max_length=30, label='Apellido')
+    email = forms.EmailField(required=True, label=_("Correo Electrónico"))
+    first_name = forms.CharField(max_length=30, label=_("Nombre"))
+    last_name = forms.CharField(max_length=30, label=_("Apellido"))
 
     password1 = forms.CharField(
-        label="Contraseña",
+        label=_("Contraseña"),
         widget=forms.PasswordInput,
         help_text="",
     )
     password2 = forms.CharField(
-        label="Confirmar Contraseña",
+        label=_("Confirmar Contraseña"),
         widget=forms.PasswordInput,
         help_text="",
     )
@@ -40,9 +41,9 @@ class UserRegisterForm(UserCreationForm):
         model = User
         fields = ['username', 'email', 'first_name', 'last_name', 'password1', 'password2']
         labels = {
-            'username': 'Nombre de Usuario',
-            'password1': 'Contraseña',
-            'password2': 'Confirmar Contraseña',
+            'username': _("user"),
+            'password1': _("Contraseña"),
+            'password2': _("Confirmar Contraseña"),
         }
 
     def __init__(self, *args, **kwargs):
@@ -56,16 +57,16 @@ class FarmerForm(forms.ModelForm):
         model = Farmer
         fields = ['country', 'state', 'postal_code', 'phone']
         labels = {
-            'country': 'País',
-            'state': 'Estado/Provincia',
-            'postal_code': 'Código Postal',
-            'phone': 'Teléfono',
+            'country': _("País"),
+            'state': _("Estado/Provincia"),
+            'postal_code': _("Código Postal"),
+            'phone': _("Teléfono"),
         }
         widgets = {
-            'country': forms.TextInput(attrs={'placeholder': 'Ingresa tu país'}),
-            'state': forms.TextInput(attrs={'placeholder': 'Ingresa tu estado o provincia'}),
-            'postal_code': forms.NumberInput(attrs={'placeholder': 'Ingresa tu código postal'}),
-            'phone': forms.TextInput(attrs={'placeholder': 'Ingresa tu número de teléfono'}),
+            'country': forms.TextInput(attrs={'placeholder': _("Ingresa tu país")}),
+            'state': forms.TextInput(attrs={'placeholder': _("Ingresa tu estado o provincia")}),
+            'postal_code': forms.NumberInput(attrs={'placeholder':  _("Ingresa tu código postal")}),
+            'phone': forms.TextInput(attrs={'placeholder': _("Ingresa tu número de teléfono")}),
         }
 
 class DriverForm(forms.ModelForm):
@@ -73,12 +74,12 @@ class DriverForm(forms.ModelForm):
         model = Driver
         fields = ['description', 'phone']
         labels = {
-            'description': 'Descripción',
-            'phone': 'Teléfono',
+            'description': _("Descripción"),
+            'phone': _("Teléfono"),
         }
         widgets = {
-            'description': forms.Textarea(attrs={'placeholder': 'Ingresa una descripción breve sobre ti'}),
-            'phone': forms.TextInput(attrs={'placeholder': 'Ingresa tu número de teléfono'}),
+            'description': forms.Textarea(attrs={'placeholder': _("Ingresa una descripción breve sobre ti")}),
+            'phone': forms.TextInput(attrs={'placeholder': _("Ingresa tu número de teléfono")}),
         }
 
 class TruckForm(forms.ModelForm):
@@ -86,8 +87,8 @@ class TruckForm(forms.ModelForm):
         model = Truck
         fields = ['LicensePlate']
         labels = {
-            'LicensePlate': 'Placa del Camión',
+            'LicensePlate': _("Placa del Camión"),
         }
         widgets = {
-            'LicensePlate': forms.TextInput(attrs={'placeholder': 'Ingresa la placa del camión'}),
+            'LicensePlate': forms.TextInput(attrs={'placeholder': _("Ingresa la placa del camión")}),
         }

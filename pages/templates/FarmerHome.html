@@ -25,11 +25,11 @@
                         <a class="nav-link active" aria-current="page" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Products</a>
+                        <a class="nav-link" href="#">{% trans "productos" %}</a>
                     </li>
                     <li class="nav-item"></li>
                     <a class="nav-link" href="{% url 'farmer_my_orders' farmer.id %}">{% trans "mis ordenes" %}</a>
-                    <a class="nav-link active" aria-current="page" href="{% url 'logout' %}">Cerrar Sesión</a>
+                    <a class="nav-link active" aria-current="page" href="{% url 'logout' %}">{% trans "cierre s" %}</a>
                     </li>
                 </ul>
             </div>

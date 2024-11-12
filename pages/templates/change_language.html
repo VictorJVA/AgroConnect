@@ -1,0 +1,22 @@
+<!-- templates/change_language.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Language</title>
+</head>
+<body>
+    <h1>Select your language</h1>
+    <form method="post" action="{% url 'change_language' %}">
+        {% csrf_token %}
+        <label for="language">Choose Language:</label>
+        <select name="language" id="language">
+            <option value="en">English</option>
+            <option value="es">Español</option>
+            <!-- Puedes agregar más idiomas según las necesidades -->
+        </select>
+        <button type="submit">Change Language</button>
+    </form>
+</body>
+</html>

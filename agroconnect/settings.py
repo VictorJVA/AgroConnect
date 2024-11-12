@@ -135,3 +135,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOCALE_PATHS = [
     os.path.join(BASE_DIR, 'locale'),  # Cambia 'locale' si deseas otra ubicación
 ]
+
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
