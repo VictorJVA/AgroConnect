@@ -1,3 +1,4 @@
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,7 +28,7 @@
                         <a class="nav-link" href="#">Products</a>
                     </li>
                     <li class="nav-item"></li>
-                    <a class="nav-link" href="{% url 'farmer_my_orders' farmer.id %}">My orders</a>
+                    <a class="nav-link" href="{% url 'farmer_my_orders' farmer.id %}">{% trans "mis ordenes" %}</a>
                     <a class="nav-link active" aria-current="page" href="{% url 'logout' %}">Cerrar Sesión</a>
                     </li>
                 </ul>
@@ -37,14 +38,14 @@
 
     <!-- Hero Section -->
     <div class="container-fluid bg-light text-center py-5">
-        <h1>Welcome to the Farmer's Portal</h1>
-        <p class="lead">Providing fresh, organic products straight from the farm to your table</p>
-        <a href="{% url 'create_product' farmer.id %}" class="btn btn-success btn-lg">Create new post</a>
+        <h1>{% trans "Bienvenidos al portal del granjero" %}</h1>
+        <p class="lead">{% trans "brindando siempre la frescura del campo hasta la mesa de la casa" %}</p>
+        <a href="{% url 'create_product' farmer.id %}" class="btn btn-success btn-lg">{% trans "crear nueva publicacion" %}</a>
     </div>
 
     <!-- Products Section -->
     <div class="container py-5">
-        <h2 class="text-center">Our Products</h2>
+        <h2 class="text-center">{% trans "Productos" %}</h2>
         <div class="row">
             {% for product in products %}
             <div class="col-lg-4 col-md-6 mb-4">
@@ -64,7 +65,7 @@
                 </div>
             </div>
             {% empty %}
-            <p>No products available at the moment.</p>
+            <p>{% trans "no hay productos" %}</p>
             {% endfor %}
         </div>
     </div>

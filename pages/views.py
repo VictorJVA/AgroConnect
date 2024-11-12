@@ -15,6 +15,8 @@ from .utils import FarmerDataAccess, OrderDataAccess, DriverDataAccess
 from django.utils.translation import activate
 from django.utils import timezone
 from django.conf import settings
+from django.utils.translation import gettext_lazy as _
+
 # Create your views here.
 class jsonView(View):
     def get(self, request, *args, **kwargs):

@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% block title %} {{title}} {% endblock %}
 {% block content %}
 <div class="card mb-3">
@@ -12,15 +13,15 @@ rounded-start">
                 <h5 class="card-title">
                     {{name}}
                 </h5>
-                <p> stock: {{stock}}</p>
-                <p>famer: {{farmer_name}}</p>
-                <p>country: {{country}}</p>
-                <p>origin: {{origin}}</p>
-                <p>destination: {{destination}}</p>
-                <p> delivery due date: {{delivery}}</p>
-                <p>wanna learn more about {{farmer_name}} <a href="{% url 'farmer_person' farmer_id %}">click here</a>
+                <p>{% blocktrans %} disponible: {{stock}}{% endblocktrans %}</p>
+                <p>{% blocktrans %}granjero: {{farmer_name}}{% endblocktrans %}</p>
+                <p>{% blocktrans %}pais: {{country}}{% endblocktrans %}</p>
+                <p>{% blocktrans %}origen: {{origin}}{% endblocktrans %}</p>
+                <p>{% blocktrans %}destino: {{destination}}{% endblocktrans %}</p>
+                <p>{% blocktrans %}fecha de entrega: {{delivery}}{% endblocktrans %}</p>
+                <p>{% blocktrans %}conozca mas de {{farmer_name}}{% endblocktrans %} <a href="{% url 'farmer_person' farmer_id %}">click here</a>
                 </p>
-                <p><a href="https://wa.me{{phone}}">contact {{farmer_name}} here</a></p>
+                <p><a href="https://wa.me{{phone}}">{% blocktrans %}contacte a {{farmer_name}} aqui{% endblocktrans %}</a></p>
             </div>
         </div>
     </div>

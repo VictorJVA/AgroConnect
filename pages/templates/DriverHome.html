@@ -1,3 +1,4 @@
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,15 +33,15 @@
 
     <!-- Orders List -->
     <div class="container py-5">
-        <h2 class="text-center mb-4">Current Orders</h2>
+        <h2 class="text-center mb-4">{% trans "ordenes actuales" %}</h2>
         <div class="table-responsive">
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>Amount</th>
-                        <th>Post Name</th>
-                        <th>Delivery Date</th>
-                        <th>Arrival Date</th>
+                        <th>{% trans "cantidad" %}</th>
+                        <th>{% trans "nombre de la publicacion" %}</th>
+                        <th>{% trans "fecha de recogida" %}</th>
+                        <th>{% trans "fecha de llegada" %}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -53,7 +54,7 @@
                     </tr>
                     {% empty %}
                     <tr>
-                        <td colspan="4" class="text-center">No current orders.</td>
+                        <td colspan="4" class="text-center">{% trans "no hay ordenes actuales" %}</td>
                     </tr>
                     {% endfor %}
                 </tbody>
