@@ -1,4 +1,4 @@
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect,JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from django.views.generic import TemplateView,View
@@ -6,16 +6,49 @@ from django.urls import reverse_lazy
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.views import LoginView, LogoutView
 from .forms import ProductForm, OrderForm, UserRegisterForm, FarmerForm, DriverForm, TruckForm
-from pages.models import Farmer, Driver, Truck, Post,Order,Farmer, Driver, User
+from pages.models import Farmer, Driver, Truck, Post,Order,Farmer, Driver, User, Order
 from django.views.generic import TemplateView, FormView
 from datetime import datetime
 from django.contrib import messages
 from .interfaces import FarmerDataAccessInterface, OrderDataAccessInterface, DriverDataAccessInterface
 from .utils import FarmerDataAccess, OrderDataAccess, DriverDataAccess
 from django.utils.translation import activate
+from django.utils import timezone
 from django.conf import settings
 # Create your views here.
+class jsonView(View):
+    def get(self, request, *args, **kwargs):
+        now = timezone.now()
 
+        orders = Order.objects.filter(PostId__arrival_date__gt=now)
+        posts_data = []
+        for order in orders:
+            post = order.PostId 
+            posts_data.append({
+                'post_id': post.id,
+                'farmer_id': post.farmer.id,
+                'name': post.name,
+                'stock': post.stock,
+                'delivery_date': post.delivery_date,
+                'description': post.description,
+                'fare': post.fare,
+                'arrival_date': post.arrival_date,
+                'origin': post.Origin,
+                'destination': post.Destination,
+            })
+        return JsonResponse(posts_data, safe=False)
+
+class RouteMapView(View):
+    def get(self, request, order_id, *args, **kwargs):
+        order = get_object_or_404(Order, id=order_id)
+        post = order.PostId 
+
+        context = {
+            'google_maps_api_key': 'AIzaSyAcpt3YUZb-WCQ9JqBMyjy6lMEDJot29lM',
+            'destination': post.Destination,
+        }
+
+        return render(request, 'route_map.html', context)
 
 class HomePageView(TemplateView):
     template_name = 'home.html'
