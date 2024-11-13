@@ -20,11 +20,7 @@ urlpatterns = [
     path('person/<int:id>', views.FarmerPersonView.as_view(), name='farmer_person'),
     path('Farmer/<int:farmer_id>/my-orders', views.FarmerMyOrdersView.as_view(), name='farmer_my_orders'),
     path('set_language/', views.SetLanguage.as_view(), name='set_language'),
-<<<<<<< HEAD
     path('change-language/', views.LanguageChangeView.as_view(), name='change_language'),
-]    
-=======
     path('json/',views.jsonView.as_view(),name="json"),
     path('route/<int:driver_id>/<int:order_id>/', views.RouteMapView.as_view(), name='route_map'),
 ]   
->>>>>>> 9ccd0b1dc90d526abfa57b1316d8ced19f2f6707
