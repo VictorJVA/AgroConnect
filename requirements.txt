@@ -2,7 +2,6 @@ asgiref==3.5.2
 Django
 factory-boy==3.2.0
 faker==18.9.0
-mysqlclient>=2.0,<3.0
 pytz==2021.3
 requests==2.31.0
 sqlparse==0.4.3
