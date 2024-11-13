@@ -100,7 +100,10 @@ class CreateProductView(View):
             product = form.save(commit=False)
             product.farmer = farmer  # Assign the farmer to the product
             product.save()
-            return redirect('home')  # Redirect to homepage after saving
+            
+            # Redirect to the FarmerHomePageView with the farmer_id
+            return redirect(reverse('Farmer', args=[farmer.id]))
+        
         return render(request, 'createPost.html', {'form': form, 'farmer': farmer})
 
 
